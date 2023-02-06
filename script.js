@@ -81,7 +81,7 @@ function updateNote(noteId, title, filterDesc) {
 }
 
 addBtn.addEventListener("click", e => {
-    e.preventDefault();
+    // e.preventDefault();
     let title = titleTag.value.trim(),
     description = descTag.value.trim();
 
@@ -90,7 +90,6 @@ addBtn.addEventListener("click", e => {
         month = months[currentDate.getMonth()],
         day = currentDate.getDate(),
         year = currentDate.getFullYear();
-
         let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
         if(!isUpdate) {
             notes.push(noteInfo);
@@ -104,10 +103,3 @@ addBtn.addEventListener("click", e => {
     }
 });
 
-const button = document.querySelector('form button')
-
-button.addEventListener('click',()=> {
-    addBtn.value = "trues"
-    descTag.value = "desk"
-    titleTag.value = 'value'
-})
