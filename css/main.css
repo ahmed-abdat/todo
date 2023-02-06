@@ -233,7 +233,7 @@ form .row textarea{
   resize: none;
   padding: 8px 15px;
 }
-form input[type='submit']{
+form input[type='submit'] , form button{
   width: 100%;
   height: 50px;
   color: #fff;
@@ -247,6 +247,10 @@ form input[type='submit']{
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+}
+
+form input[type="submit"]{
+  margin-bottom: 0.7rem;
 }
 
 @media (max-width: 660px){

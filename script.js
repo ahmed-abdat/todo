@@ -81,9 +81,6 @@ function updateNote(noteId, title, filterDesc) {
 }
 
 addBtn.addEventListener("click", e => {
-    addBtn.value = "true"
-    titleTag.value = 'that write'
-    descTag.value = 'well done '
     e.preventDefault();
     let title = titleTag.value.trim(),
     description = descTag.value.trim();
@@ -106,3 +103,11 @@ addBtn.addEventListener("click", e => {
         closeIcon.click();
     }
 });
+
+const button = document.querySelector('form button')
+
+button.addEventListener('click',()=> {
+    addBtn.value = "trues"
+    descTag.value = "desk"
+    titleTag.value = 'value'
+})
