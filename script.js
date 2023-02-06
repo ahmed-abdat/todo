@@ -4,7 +4,7 @@ popupTitle = popupBox.querySelector("header p"),
 closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
 descTag = popupBox.querySelector("textarea"),
-addBtn = popupBox.querySelector("button");
+addBtn = popupBox.querySelector("form input[type='submit']");
 
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
@@ -13,7 +13,7 @@ let isUpdate = false, updateId;
 
 addBox.addEventListener("click", () => {
     popupTitle.innerText = "أضف ملاحظة جديدة";
-    addBtn.innerText = "أضف الملاحظة";
+    addBtn.value = "أضف الملاحظة";
     popupBox.classList.add("show");
     document.querySelector("body").style.overflow = "hidden";
     if(window.innerWidth > 660) titleTag.focus();
@@ -77,7 +77,7 @@ function updateNote(noteId, title, filterDesc) {
     titleTag.value = title;
     descTag.value = description;
     popupTitle.innerText = "تحديث الملاحظة";
-    addBtn.innerText = "تحديث الملاحظة";
+    addBtn.value = "تحديث الملاحظة";
 }
 
 addBtn.addEventListener("click", e => {
