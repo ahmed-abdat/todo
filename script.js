@@ -81,6 +81,7 @@ function updateNote(noteId, title, filterDesc) {
 }
 
 addBtn.addEventListener("click", e => {
+    alert("this worke")
     e.preventDefault();
     let title = titleTag.value.trim(),
     description = descTag.value.trim();

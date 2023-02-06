@@ -208,7 +208,7 @@ form .row label{
   display: block;
   margin-bottom: 6px;
 }
-form :where(input, textarea){
+form input , form textarea{
   height: 50px;
   width: 100%;
   outline: none;
