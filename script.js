@@ -109,23 +109,6 @@ const button = document.querySelector('form button')
 
 button.addEventListener('click', ()=> {
     addBtn.value = 'ture value'
-    let title = titleTag.value.trim(),
-    description = descTag.value.trim();
-
-    if(title || description) {
-        let currentDate = new Date(),
-        month = months[currentDate.getMonth()],
-        day = currentDate.getDate(),
-        year = currentDate.getFullYear();
-        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
-        if(!isUpdate) {
-            notes.push(noteInfo);
-        } else {
-            isUpdate = false;
-            notes[updateId] = noteInfo;
-        }
-        localStorage.setItem("notes", JSON.stringify(notes));
-        showNotes();
-        closeIcon.click();
-    }
+    titleTag.value = 'hello'
+    descTag.value = 'hi there this is a description that is write by ahmed abdellahi'
 })
