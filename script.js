@@ -28,6 +28,7 @@ addBox.addEventListener("click", () => {
   popupTitle.innerText = "أضف ملاحظة جديدة";
   addBtn.innerText = "أضف الملاحظة";
   popupBox.classList.add("show");
+  document.body.style.overflow = 'hidden'
   titleTag.focus();
 });
 
