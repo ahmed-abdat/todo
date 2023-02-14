@@ -1,37 +1,48 @@
 const addBox = document.querySelector(".add-box"),
-popupBox = document.querySelector(".popup-box"),
-popupTitle = popupBox.querySelector("header p"),
-closeIcon = popupBox.querySelector("header i"),
-titleTag = popupBox.querySelector("input"),
-descTag = popupBox.querySelector("textarea"),
-addBtn = popupBox.querySelector("form input[type='submit']");
+  popupBox = document.querySelector(".popup-box"),
+  popupTitle = popupBox.querySelector("header p"),
+  closeIcon = popupBox.querySelector("header i"),
+  titleTag = popupBox.querySelector("input"),
+  descTag = popupBox.querySelector("textarea"),
+  addBtn = popupBox.querySelector("button");
 
-const months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
-let isUpdate = false, updateId;
+let isUpdate = false,
+  updateId;
 
 addBox.addEventListener("click", () => {
-    popupTitle.innerText = "أضف ملاحظة جديدة";
-    addBtn.value = "أضف الملاحظة";
-    popupBox.classList.add("show");
-    document.querySelector("body").style.overflow = "hidden";
-    if(window.innerWidth > 660) titleTag.focus();
+  popupTitle.innerText = "أضف ملاحظة جديدة";
+  addBtn.innerText = "أضف الملاحظة";
+  popupBox.classList.add("show");
+  titleTag.focus();
 });
 
 closeIcon.addEventListener("click", () => {
-    isUpdate = false;
-    titleTag.value = descTag.value = "";
-    popupBox.classList.remove("show");
-    document.querySelector("body").style.overflow = "auto";
+  isUpdate = false;
+  titleTag.value = descTag.value = "";
+  popupBox.classList.remove("show");
 });
 
 function showNotes() {
-    if(!notes) return;
-    document.querySelectorAll(".note").forEach(li => li.remove());
-    notes.forEach((note, id) => {
-        let filterDesc = note.description.replaceAll("\n", '<br/>');
-        let liTag = `<li class="note">
+  if (!notes) return;
+  document.querySelectorAll(".note").forEach((li) => li.remove());
+  notes.forEach((note, id) => {
+    let filterDesc = note.description.replaceAll("\n", "<br/>");
+    let liTag = `<li class="note">
                         <div class="details">
                             <p>${note.title}</p>
                             <span>${filterDesc}</span>
@@ -47,68 +58,62 @@ function showNotes() {
                             </div>
                         </div>
                     </li>`;
-        addBox.insertAdjacentHTML("afterend", liTag);
-    });
+    addBox.insertAdjacentHTML("afterend", liTag);
+  });
 }
 showNotes();
 
 function showMenu(elem) {
-    elem.parentElement.classList.add("show");
-    document.addEventListener("click", e => {
-        if(e.target.tagName != "I" || e.target != elem) {
-            elem.parentElement.classList.remove("show");
-        }
-    });
-}
-
-function deleteNote(noteId) {
-    let confirmDel = confirm("هل أنت متأكد من أنك تريد حذف الملاحظة ؟");
-    if(!confirmDel) return;
-    notes.splice(noteId, 1);
-    localStorage.setItem("notes", JSON.stringify(notes));
-    showNotes();
+  elem.parentElement.classList.add("show");
+  document.addEventListener("click", (e) => {
+    if (e.target.tagName != "I" || e.target != elem) {
+      elem.parentElement.classList.remove("show");
+    }
+  });
 }
 
 function updateNote(noteId, title, filterDesc) {
-    let description = filterDesc.replaceAll('<br/>', '\r\n');
-    updateId = noteId;
-    isUpdate = true;
-    addBox.click();
-    titleTag.value = title;
-    descTag.value = description;
-    popupTitle.innerText = "تحديث الملاحظة";
-    addBtn.value = "تحديث الملاحظة";
+  let description = filterDesc.replaceAll("<br/>", "\r\n");
+  updateId = noteId;
+  isUpdate = true;
+  addBox.click();
+  titleTag.value = title;
+  descTag.value = description;
+  popupTitle.innerText = "تحديث الملاحظة";
+  addBtn.innerText = "تحديث الملاحظة";
 }
 
-addBtn.addEventListener("click", e => {
-    // e.preventDefault();
-
-    addBtn.value = 'ture value'
-    let title = titleTag.value.trim(),
+addBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let title = titleTag.value.trim(),
     description = descTag.value.trim();
 
-    if(title || description) {
-        let currentDate = new Date(),
-        month = months[currentDate.getMonth()],
-        day = currentDate.getDate(),
-        year = currentDate.getFullYear();
-        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
-        if(!isUpdate) {
-            notes.push(noteInfo);
-        } else {
-            isUpdate = false;
-            notes[updateId] = noteInfo;
-        }
-        localStorage.setItem("notes", JSON.stringify(notes));
-        showNotes();
-        closeIcon.click();
+  if (title || description) {
+    let currentDate = new Date(),
+      month = months[currentDate.getMonth()],
+      day = currentDate.getDate(),
+      year = currentDate.getFullYear();
+
+    let noteInfo = { title, description, date: `${month} ${day}, ${year}` };
+    if (!isUpdate) {
+      notes.push(noteInfo);
+    } else {
+      isUpdate = false;
+      notes[updateId] = noteInfo;
     }
+    localStorage.setItem("notes", JSON.stringify(notes));
+    showNotes();
+    closeIcon.click();
+  }
 });
 
-const button = document.querySelector('form button')
 
-button.addEventListener('click', ()=> {
-    addBtn.value = 'ture value'
-    titleTag.value = 'hello'
-    descTag.value = 'hi there this is a description that is write by ahmed abdellahi'
-})
+function deleteNote(noteId) {
+  let response = confirm("هل تريد حذف الملاحظة ؟")
+  if(!response ) return ;
+  notes.splice(noteId, 1);
+  localStorage.setItem("notes", JSON.stringify(notes));
+  showNotes();
+
+}
+

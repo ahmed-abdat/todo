@@ -1,63 +1,53 @@
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="ar" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TO DO APP</title>
-    <!-- normalize -->
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <!-- font awsome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- main css -->
-    <link rel="stylesheet" href="./css/main.css" />
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
-    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <meta charset="utf-8">  
+    <title>ملاحطات</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iconscout Link For Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   </head>
   <body>
-
-    <section class="popup d-f hide">
-      <form action="#" class="d-coul">
-        <div class="title d-coul">
-          <label for="#title">عنوان المهمة</label>
-          <input type="text" id="title" placeholder="أدخل عنوان المهمة">
-        </div>
-        <div class="desc d-coul">
-          <label for="#desc">وصف المهمة</label>
-          <textarea name="desc" id="desc" cols="30" rows="10" placeholder="أدخل وصف المهمة"></textarea>
-        </div>
+    <!-- <div class="confirm-popup">
+      <div class="container">
+        <h3>هل أنت متأكد من حذف الملاحظة ؟</h3>
         <div class="btns">
-          <button id="cancel">إلغاء</button>
-          <input type="submit" value="أضافة">
+          <button class="deny">لا</button>
+          <button class="confirm">نعم</button>
         </div>
-      </form>
-     </section>
-
-
-    <div class="container">
-      <div class="wrapper">
-        <header class="header">
-          <lord-icon
-            src="https://cdn.lordicon.com/xzksbhzh.json"
-            trigger="click"
-            class="add-icon"
-            colors="primary:#9ab3f5,secondary:#ecf9ff"
-            style="width: 6rem; height: 6rem"
-          >
-          </lord-icon>
-          أضف مهمة
-        </header>
-          
+      </div>
+    </div> -->
+    <div class="popup-box">
+      <div class="popup">
+        <div class="content">
+          <header>
+            <p></p>
+            <i class="uil uil-times"></i>
+          </header>
+          <form action="#">
+            <div class="row title">
+              <label>عنوان الملاحظة</label>
+              <input type="text" spellcheck="false">
+            </div>
+            <div class="row description">
+              <label>وصف الملاحظة</label>
+              <textarea spellcheck="false"></textarea>
+            </div>
+            <button></button>
+          </form>
+        </div>
       </div>
     </div>
-  
-    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-    <script src="./app.js"></script>
+    <div class="wrapper">
+      <li class="add-box">
+        <div class="icon"><i class="uil uil-plus"></i></div>
+        <p>أضف مهمة جديدة</p>
+      </li>
+    </div>
+
+    <script src="script.js"></script>
+    
   </body>
 </html>
