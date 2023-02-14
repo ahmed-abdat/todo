@@ -230,10 +230,12 @@ form :where(input, textarea) {
 }
 
 form input {
-  color: #444;
+  color: #6a93f8;
+  font-size: 1.1rem;
 }
 form textarea {
-  color: #666;
+  color: #83a2f0;
+  font-size: 0.9rem;
 }
 form .row textarea {
   height: 150px;
