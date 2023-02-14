@@ -29,12 +29,14 @@ addBox.addEventListener("click", () => {
   addBtn.innerText = "أضف الملاحظة";
   popupBox.classList.add("show");
   titleTag.focus();
+  document.body.style.overflow = 'hidden'
 });
 
 closeIcon.addEventListener("click", () => {
   isUpdate = false;
   titleTag.value = descTag.value = "";
   popupBox.classList.remove("show");
+  document.body.style.overflow = 'auto'
 });
 
 function showNotes() {
