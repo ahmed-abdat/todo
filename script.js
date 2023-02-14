@@ -90,11 +90,16 @@ addBtn.addEventListener("click", (e) => {
 
   if (title || description) {
     let currentDate = new Date(),
-      month = months[currentDate.getMonth()],
+      // month = months[currentDate.getMonth()],
+      month = currentDate.getMonth() + 1,
       day = currentDate.getDate(),
-      year = currentDate.getFullYear();
+      year = currentDate.getFullYear(),
+      hour = currentDate.getHours(),
+      minit = currentDate.getMinutes(),
+      AMPM = (hour > 12 ? "PM" : "AM"),
+      the_month = (month > 9 ? month : `0${month}`)
 
-    let noteInfo = { title, description, date: `${month} ${day}, ${year}` };
+    let noteInfo = { title, description, date: `${day},${the_month},${year} ${hour-12}:${minit} ${AMPM}` };
     if (!isUpdate) {
       notes.push(noteInfo);
     } else {

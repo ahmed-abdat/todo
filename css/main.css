@@ -106,6 +106,7 @@ header,
 .bottom-content span {
   color: #6d6d6d;
   font-size: 14px;
+  direction: initial;
 }
 .bottom-content .settings {
   position: relative;
