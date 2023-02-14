@@ -33,6 +33,7 @@ addBox.addEventListener("click", () => {
 });
 
 closeIcon.addEventListener("click", () => {
+  document.body.style.overflow = 'auto'
   isUpdate = false;
   titleTag.value = descTag.value = "";
   popupBox.classList.remove("show");
